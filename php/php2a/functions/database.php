@@ -9,7 +9,7 @@
 
 function db() {
 
-    $link = mysqli_connect("localhost", "root", "Wachtwoord12", "php2a");
+    $link = mysqli_connect("localhost", "root", "", "");
 
     if (mysqli_connect_error()) {
         die("Database fout");

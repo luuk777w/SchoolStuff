@@ -1,6 +1,6 @@
 <?php
 
-$link = mysqli_connect("localhost", "root", "Wachtwoord12", "ds2");
+$link = mysqli_connect("localhost", "root", "", "");
 
 if(mysqli_connect_error()){
 
