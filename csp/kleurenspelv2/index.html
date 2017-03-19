@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <title>KleurenSpel</title>
+
+    <style>
+
+        #game{
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1, p{
+            font-family: Tahoma;
+            text-align: center;
+        }
+
+        canvas{
+            border: solid 1px black;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>KleurenSpel!</h1>
+<p>Druk op spatie om te beginnen.</p>
+
+<canvas id="game" width="340" height="450">No canvas support.</canvas>
+
+    <h1>Score:</h1>
+    <p id="score">raak: 0<br> Mis: 0<br> Telaat: 0<br> </p>
+
+<script>
+
+    var canvas;
+    var ctx;
+    var interval;
+    var raak = 0;
+    var mis = 0;
+    var telaat = 0;
+    var p = 1;
+    var dp = 0;
+    var started = false;
+
+    var pogingen = 10;
+
+    window.onload = function() {
+
+        canvas = document.querySelector('#game');
+        ctx = canvas.getContext('2d');
+
+        reset();
+
+    };
+
+    function reset() {
+        ctx.fillStyle = 'grey';
+
+        ctx.fillRect(10, 10, 100, 100);
+        ctx.fillRect(120, 10, 100, 100);
+        ctx.fillRect(230, 10, 100, 100);
+        ctx.fillRect(10, 120, 100, 100);
+        ctx.fillRect(120, 120, 100, 100);
+        ctx.fillRect(230, 120, 100, 100);
+        ctx.fillRect(10, 230, 100, 100);
+        ctx.fillRect(120, 230, 100, 100);
+        ctx.fillRect(230, 230, 100, 100);
+
+        ctx.fillRect(10, 340, 320, 100);
+    }
+
+    var colors = ['red', 'blue', 'green', 'yellow', 'orange', 'aqua', 'lime', 'purple', 'pink'];
+    var r1;
+
+    function draw() {
+
+        ctx.fillStyle = colors[0];
+        ctx.fillRect(10, 10, 100, 100);
+        ctx.fillStyle = colors[1];
+        ctx.fillRect(120, 10, 100, 100);
+        ctx.fillStyle = colors[2];
+        ctx.fillRect(230, 10, 100, 100);
+        ctx.fillStyle = colors[3];
+        ctx.fillRect(10, 120, 100, 100);
+        ctx.fillStyle = colors[4];
+        ctx.fillRect(120, 120, 100, 100);
+        ctx.fillStyle = colors[5];
+        ctx.fillRect(230, 120, 100, 100);
+        ctx.fillStyle = colors[6];
+        ctx.fillRect(10, 230, 100, 100);
+        ctx.fillStyle = colors[7];
+        ctx.fillRect(120, 230, 100, 100);
+        ctx.fillStyle = colors[8];
+        ctx.fillRect(230, 230, 100, 100);
+
+        r1 = Math.floor(Math.random() * 9);
+        ctx.fillStyle = colors[r1];
+        ctx.fillRect(10, 340, 320, 100);
+
+        colors.sort(function() {
+            return 0.5 - Math.random()
+        });
+
+        dp++;
+
+        if(p < pogingen +1) {
+
+            if (dp > p || dp < p) {
+                p = dp;
+                telaat++;
+                document.querySelector('#score').innerHTML =
+                    'raak: ' + raak + '<br> Mis: ' + mis + '<br> Telaat: ' + telaat + '<br>';
+
+            }
+
+        } else {
+            document.querySelector('#score').insertAdjacentHTML('beforeend',
+                '<hr style="width: 200px;"> Done!');
+            clearInterval(interval);
+            started = false;
+            reset();
+        }
+
+    }
+    
+    function click(e) {
+
+        if(started) {
+
+            if (p < pogingen +1) {
+
+                var rect = canvas.getBoundingClientRect();
+                var x = e.clientX - rect.left;
+                var y = e.clientY - rect.top;
+
+                var clickData = ctx.getImageData(x, y, 10, 10).data;
+                var colorData = ctx.getImageData(100, 400, 10, 10).data;
+
+                var rgb1 = "r: " + colorData[0] + " g: " + colorData[1] + " b: " + colorData[2];
+                var rgb2 = "r: " + clickData[0] + " g: " + clickData[1] + " b: " + clickData[2];
+
+                if (rgb2 != "r: 0 g: 0 b: 0" && y < 340 && p <= 10) {
+
+                    if (rgb1 == rgb2) {
+                        raak++;
+                    } else {
+                        mis++;
+                    }
+
+                }
+
+                document.querySelector('#score').innerHTML =
+                    'raak: ' + raak + '<br> Mis: ' + mis + '<br> Telaat: ' + telaat + '<br>';
+            }
+
+            p++;
+
+        }
+        
+    }
+    
+    function start(e) {
+
+        if(e.which == 32){
+            started = true;
+            interval = setInterval(draw, 2000);
+        }
+
+    }
+
+    document.addEventListener('keydown', start);
+    document.addEventListener('click', click);
+
+</script>
+</body>
+</html>

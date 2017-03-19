@@ -1,0 +1,20 @@
+ tr, td {
+    border: black solid 1px;
+     padding: 30px;
+}
+
+ #k1{
+     background-color: aqua;
+ }
+
+ #k2{
+     background-color: red;
+ }
+
+ #k3{
+     background-color: yellow;
+ }
+
+ #k4{
+     background-color: green;
+ }

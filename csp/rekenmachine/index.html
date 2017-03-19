@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="nl">
+<head>
+
+    <title>Rekenmachine</title>
+
+    <style>
+
+        #container{
+            width: 300px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: blue;
+            padding: 5px;
+        }
+
+        .row{
+            height: 75px;
+            width: 300px;
+            margin: auto;
+        }
+
+        #result-row{
+            margin-bottom: 10px;
+            margin-top: 5px;
+        }
+
+        #result{
+            background-color: gray;
+            height: 75px;
+            width: 292px;
+            margin: auto;
+            text-align: right;
+            font-family: Tahoma, sans-serif;
+            font-size: 30px;
+            color: white;
+
+        }
+
+        #result-span{
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 75px;
+        }
+
+        .btn{
+            position: relative;
+            top: 3px;
+            left: 4px;
+            height: 70px;
+            width: 70px;
+            background-color: gray;
+            border: 0;
+            color: white;
+            font-size: 20px;
+            font-family: Tahoma, sans-serif;
+        }
+
+        #result-btn{
+            width: 144px;
+        }
+
+        .btn:hover{
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script src="https://use.fontawesome.com/104e182223.js"></script>
+</head>
+<body>
+
+    <div id="container">
+
+        <div class="row" id="result-row">
+            <div id="result"><span id="result-span"></span></div>
+        </div>
+        <div class="row">
+            <button class="btn">7</button>
+            <button class="btn">8</button>
+            <button class="btn">9</button>
+            <button class="btn">+</button>
+        </div>
+        <div class="row">
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+            <button class="btn">6</button>
+            <button class="btn">-</button>
+        </div>
+        <div class="row">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">*</button>
+        </div>
+        <div class="row">
+            <button class="btn">0</button>
+            <button class="btn" id="result-btn">=</button>
+            <button class="btn">/</button>
+        </div>
+
+
+    </div>
+
+</body>
+</html>

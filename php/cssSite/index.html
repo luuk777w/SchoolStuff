@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="container">
+
+    <header>
+
+        <h1>DE WEBSITE DES SIMPELHEID</h1>
+
+    </header>
+
+    <div id="div_2">
+
+
+
+        <aside id="menu">
+
+
+
+            <nav id= "side_menu">
+                <ul>
+                    <li>Menu:</li>
+                    <li id="menu_knop_1" ><button onclick="ChangeIframe('homepage.html');">Home</button></li>
+                    <li id="menu_knop_2" ><button onclick="ChangeIframe('tabel.html');">Tabel</button></li>
+                    <li id="menu_knop_3" ><button onclick="ChangeIframe('lijst.html');">Lijst</button></li>
+                    <li id="menu_knop_4" ><button onclick="ChangeIframe('gallery.html');">Gallery</button></li>
+                </ul>
+            </nav>
+
+        </aside>
+
+        <section>
+
+            <iframe id="iframe" src="homepage.html"></iframe>
+
+        </section>
+
+        <aside id="side_news">
+
+            SideNews
+
+        </aside>
+
+    </div>
+
+    <footer>
+        Copyright: Luuk Wuijster 2016 &copy; &reg; &trade;
+    </footer>
+
+
+</div>
+
+<script>
+
+function ChangeIframe(iframe) {
+
+    $("#iframe").attr("src", iframe);
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8" />
+    <title>Test</title>
+
+    <script src="jquery-3.1.0.min.js"></script>
+
+    <style>
+
+        body{
+            background-image: url(site.png);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 1024px;
+            height: 768px;
+        }
+        #colofon{
+            position: fixed;
+            top: 120px;
+            left: 88px;
+            font-family: Tahoma;
+        }
+        #cfoto{
+            position: fixed;
+            width: 200px;
+            height: 500px;
+            top: 170px;
+            left: 30px;
+        }
+        #linkjes{
+            position: fixed;
+            top: 213px;
+            left: 300px;
+        }
+        .link{
+            float: left;
+            font-family: Tahoma;
+        }
+        .link:hover{
+            cursor: pointer;
+        }
+        .LN{
+            position: relative;
+            bottom: 6px;
+            color: white;
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none;   /* Chrome/Safari/Opera */
+            -khtml-user-select: none;    /* Konqueror */
+            -moz-user-select: none;      /* Firefox */
+            -ms-user-select: none;       /* Internet Explorer/Edge */
+            user-select: none;           /* Non-prefixed version, currently
+                                         not supported by any browser */
+        }
+        #content{
+            position: fixed;
+            left: 277px;
+            top: 270px;
+            width: 690px;
+            height: 455px;
+        }
+
+        #home{
+            position: fixed;
+            left: 268px;
+            top: 218px;
+            width: 92px;
+            height: 50px;
+            text-align: center;
+        }
+        #youtube{
+            position: fixed;
+            left: 368px;
+            top: 218px;
+            width: 92px;
+            height: 50px;
+            text-align: center;
+        }
+        .h{
+            font-family: Tahoma;
+            font-size: 35px;
+
+        }
+        #GIF{
+            position: fixed;
+            left: 469px;
+            top: 218px;
+            width: 92px;
+            height: 50px;
+            text-align: center;
+        }
+
+        #niks{
+            position: fixed;
+            left: 570px;
+            top: 218px;
+            width: 92px;
+            height: 50px;
+            text-align: center;
+        }
+        #tekst{
+            position: fixed;
+            left: 670px;
+            top: 218px;
+            width: 92px;
+            height: 50px;
+            text-align: center;
+        }
+        #foto{
+            position: relative;
+            width: 250px;
+            height: 250px;
+            left: 70px;
+        }
+        #swag{
+            width: 600px;
+            height: 300px;
+        }
+        #border{
+            border: 1px dashed red;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <div id="main">
+
+        <p id="colofon">Advertentie:</p>
+        <img id="cfoto" src="pics/add.png">
+
+            <div class="link" id="home"> <p class="LN">Home</p> </div>
+            <div class="link" id="youtube"> <p class="LN">animatie 1</p> </div>
+            <div class="link" id="GIF"> <p class="LN">animatie 2</p> </div>
+            <div class="link" id="niks"> <p class="LN">animatie 3</p> </div>
+            <div class="link" id="tekst"> <p class="LN">animatie 4</p> </div>
+
+            <div id="content">
+
+                <h1 id="ch1" class="h">Welkom op de homepagina! </h1>
+
+
+            </div>
+
+    </div>
+
+<script>
+
+
+    function tab() {
+
+        $(".link").css("background-image", "none");
+        $("#home").css("background-image", "url(pics/Tab1.png)");
+
+
+    }
+
+
+    $("#home").click(function () {
+
+        $(".link").css("background-image", "none");
+        $("#home").css("background-image", "none");
+        $("#ch1").html('<h1 class="h"> Welkom op de homepagina! </h1>');
+
+    });
+
+    $("#youtube").click(function () {
+
+		tab();
+        $(this).css("background-image", "url(pics/Tab2.png)");
+        $("#ch1").html('<img id="swag" src="pics/Lesbrief 1.gif">');
+    });
+
+    $("#GIF").click(function () {
+
+        tab();
+        $(this).css("background-image", "url(pics/Tab2.png)");
+        $("#ch1").html('<img id="swag" src="pics/Lesbrief 1 Opdracht 1.gif">');
+
+    });
+
+    $("#niks").click(function () {
+
+		tab();
+        $(this).css("background-image", "url(pics/Tab2.png)");
+        $("#ch1").html('<img id="swag" src="pics/Lesbrief 2 Opdracht 2.gif">');
+
+    });
+
+    $("#tekst").click(function () {
+
+		tab();
+        $(this).css("background-image", "url(pics/Tab2.png)");
+        $("#ch1").html('<img id="swag" src="pics/Lesbrief3.gif">');
+
+    });
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Klikspel</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+
+    <style>
+        .spel_table{
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            border: solid white 3px;
+            cursor: pointer;
+        }
+        .kleur_table{
+            height: 100px;
+            width: 100px;
+            background-color: red;
+        }
+
+        table{
+            border: solid black 5px;
+            margin: auto;
+        }
+
+        #score{
+            height: 460px;
+            overflow: scroll;
+        }
+
+        #buttons{
+            position: absolute;
+            right: 0px;
+            top: 140px;
+        }
+        button{
+            margin: 10px;
+        }
+        .hover:hover{
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+
+            <div id="buttons">
+            <button onclick="timer = setInterval(Timer, 2000)" class="btn btn-primary hover">Start</button> <br>
+            <button onclick="clearInterval(timer)" class="btn btn-danger hover">Stop</button> <br>
+                <p>Hoeveel keren:</p>
+                <input type="number" id="number" value="10">
+            </div>
+
+        </div>
+        <div class="col-5">
+
+            <table>
+                <tr>
+                    <td class="spel_table" id="veld_1" onclick="click()"></td>
+                    <td class="spel_table" id="veld_2"></td>
+                    <td class="spel_table" id="veld_3"></td>
+                    <td class="spel_table" id="veld_4"></td>
+                </tr>
+                <tr>
+                    <td class="spel_table" id="veld_5"></td>
+                    <td class="spel_table" id="veld_6"></td>
+                    <td class="spel_table" id="veld_7"></td>
+                    <td class="spel_table" id="veld_8"></td>
+                </tr>
+                <tr>
+                    <td class="spel_table" id="veld_9"></td>
+                    <td class="spel_table" id="veld_10"></td>
+                    <td class="spel_table" id="veld_11"></td>
+                    <td class="spel_table" id="veld_12"></td>
+                </tr>
+                <tr>
+                    <td class="spel_table" id="veld_13"></td>
+                    <td class="spel_table" id="veld_14"></td>
+                    <td class="spel_table" id="veld_15"></td>
+                    <td class="spel_table" id="veld_16"></td>
+                </tr>
+                <tr>
+                    <td class="kleur_table"></td>
+                    <td class="kleur_table"></td>
+                    <td class="kleur_table"></td>
+                    <td class="kleur_table"></td>
+                </tr>
+            </table>
+
+        </div>
+        <div class="col">
+
+            <h1 style="text-align: center; ">Score:</h1>
+            <p id="score"></p>
+
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+    var kleuren = ['red', 'yellow', 'blue', 'lime', 'green', 'pink', 'aqua', 'brown', 'orange',
+        'purple', 'black', 'marroon', 'magenta', 'lightblue', 'beige', 'silver', 'indigo'];
+
+    var numbers = 10;
+    var a = 0;
+    var clickable = false;
+
+    function Timer() {
+
+
+        var scores = $("#score").html();
+        var random1 = Math.floor(Math.random() * 16);
+        $(".kleur_table").css("background-color", kleuren[random1]);
+
+        for(i = 0; i <= 16; i++){
+
+            $("#veld_" + i).css("background-color", kleuren[i -1]);
+
+        }
+
+        kleuren.sort(function() {
+            return 0.5 - Math.random()
+        });
+
+        if (clickable){
+            $("#score").html("Niet snel genoeg! <br>" + scores);
+        }
+        a++;
+        clickable = true;
+        if (a >= numbers){
+            clearInterval(timer);
+        }
+
+    }
+
+    $(".spel_table").click(function (){
+
+        if(clickable) {
+            var scores = $("#score").html();
+            clickable = false;
+            var kleur1 = $(this).css("background-color");
+            var kleur2 = $(".kleur_table").css("background-color");
+            if (kleur1 == kleur2) {
+                $("#score").html("JUIST! <br>" + scores);
+            } else {
+                $("#score").html("FOUT! <br>" + scores);
+            }
+        }
+    });
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+</body>
+</html>

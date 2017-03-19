@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <title>Buttonspel</title>
+
+    <style>
+
+        #game{
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1, p{
+            font-family: Tahoma;
+            text-align: center;
+        }
+
+        canvas{
+            border: solid 1px black;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<h1>Klik op het vierkantje</h1>
+
+<canvas id="game" width="770" height="600">No canvas support.</canvas>
+
+<p id="cords">X: 0 Y: 0</p>
+
+
+<script>
+
+    var canvas;
+    var ctx;
+    var btnX = 100;
+    var btnY = 100;
+    var dx = 1;
+    var dy = 1;
+
+
+    window.onload = function() {
+
+        canvas = document.querySelector('#game');
+        ctx = canvas.getContext('2d');
+        draw();
+
+    };
+
+    function draw() {
+
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0,0,canvas.width, canvas.height);
+
+        ctx.fillStyle = 'grey';
+        ctx.fillRect(btnX, btnY, 75, 50);
+
+    }
+
+    function move(e) {
+
+//        var rect = canvas.getBoundingClientRect();
+//        var x = Math.floor(e.clientX - rect.left);
+//        var y = Math.floor(e.clientY - rect.top);
+//
+//        document.querySelector('#cords').innerHTML = "X: " + x + " Y: " + y;
+//
+//        if(x > btnX -10 && x < btnX +85 && y > btnY -10 && y < btnY +60 ){
+            //document.querySelector('h1').innerHTML = 'er in';
+
+            btnX += dx;
+            btnY += dy;
+
+            console.log(btnX + dx);
+
+            if(btnY + dy > 570 || btnY < 10) {
+                dy = -dy;
+            }
+
+            if(btnX + dx > 700 || btnX < 10) {
+                dx = -dx;
+            }
+
+
+            draw();
+
+        //}
+
+    }
+
+    canvas = document.querySelector('#game');
+    //canvas.addEventListener('mousemove', move);
+    setInterval(move, 1);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+
+    <title>KleurenspelV3</title>
+
+    <style>
+        .container{
+            border: solid 1px black;
+            display: flex;
+            margin: auto;
+            width: 1000px;
+        }
+
+        h1{
+            font-family: Tahoma, Verdana, Arial, sans-serif;
+        }
+
+        #optionsHeader{
+            text-align: center;
+        }
+        #options {
+            text-align: center;
+        }
+
+        .inner_div{
+            width: 300px;
+            border: solid 1px black;
+        }
+
+        #game{
+            width: 400px !important;
+        }
+
+        .vierkant{
+            margin: 0px;
+            background-color: grey;
+            min-width: 30%;
+            flex:1 1 auto;
+        }
+
+        #vierkanten{
+            width: 400px ;
+            height: 400px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #startBlock{
+            flex-grow: 1;
+            background-color: grey;
+            margin: 3px;
+        }
+
+        #rechthoek{
+            height: 120px;
+            flex-grow: 1;
+            margin: 3px;
+            background-color: grey;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="options" class="inner_div">
+
+            <h1 id="optionsHeader">Options:</h1>
+
+            <label for="nummers">Aantal vierkantjes:</label>
+            <input type="number" id="nummers">
+            <br>
+            <button id="submit">Start</button>
+
+        </div>
+
+        <div id="game" class="inner_div">
+
+            <div id="vierkanten">
+
+                <div id="startBlock"></div>
+
+            </div>
+
+            <div id="rechthoek"></div>
+
+        </div>
+
+        <div id="score" class="inner_div">
+
+        </div>
+
+    </div>
+
+    <script src="hsvToRgb.js"></script>
+    <script>
+
+        var gameDiv = document.querySelector("#vierkanten");
+        var mw = '30%';
+        var aantalVierkanten;
+
+        document.querySelector("#submit").onclick = function () {
+
+            setInterval(bla, 1);
+            //bla();
+
+        }
+
+        function bla() {
+
+
+
+            aantalVierkanten = document.querySelector("#nummers").value;
+
+            if(aantalVierkanten > 100){
+                //alert('100 vierkanten is de max.');
+                //return;
+                mw = '2%';
+            } else if (aantalVierkanten > 81){
+                mw = '8%';
+            } else if (aantalVierkanten > 64){
+                mw = '9%';
+            } else if (aantalVierkanten > 49){
+                mw = '10%';
+            } else if (aantalVierkanten > 36){
+                mw = '12.5%';
+            } else if (aantalVierkanten > 25){
+                mw = '15%';
+            } else if (aantalVierkanten > 16){
+                mw = '17%';
+            } else if (aantalVierkanten > 9){
+                mw = '20%';
+            } else if (aantalVierkanten > 4){
+                mw = '30%';
+            } else if (aantalVierkanten > 2){
+                mw = '40%';
+            } else if (aantalVierkanten > 1){
+                mw = '50%';
+            }
+
+            while (gameDiv.firstChild){
+                gameDiv.removeChild(gameDiv.firstChild);
+            }
+
+            for(i = 0; i < aantalVierkanten; i++) {
+                var vierkant = document.createElement('div');
+                vierkant.className = "vierkant";
+                gameDiv.appendChild(vierkant);
+            }
+
+            var vierkanten = document.querySelectorAll(".vierkant");
+
+            var colors = [];
+            var v;
+            var s;
+
+
+            for(hue = 0; hue < 360; hue += 360 / vierkanten.length) {
+
+                //for(s = 0; s <= 100; s++){
+                    //colors.push(hsvToRgb(hue, 100, 100));
+                //}
+
+                colors.push(hsvToRgb(1, 0, 100));
+
+                colors.push(hsvToRgb(1, 100, 0));
+
+            }
+//
+//            for (v = 100; v >= 0; v--){
+//
+//                for(s = 0; s <= 100; s++){
+//                    colors.push(hsvToRgb(1, v, s));
+//                }
+//                s = 0;
+//            }
+
+            colors.sort(function() {
+                return 0.5 - Math.random()
+            });
+
+            for(i = 0; i < vierkanten.length; i++){
+
+                vierkanten[i].style.minWidth = mw;
+                vierkanten[i].style.backgroundColor = 'rgb(' + colors[i][0] + ',' + colors[i][1] + ',' + colors[i][2] + ')';
+            }
+
+        }
+
+        var rechthoek = document.querySelector("#rechthoek");
+
+        function GetAndChangeColor(event) {
+            //alert('hai');
+            var x = event.clientX;
+            var y = event.clientY;
+            rechthoek.style.backgroundColor = document.elementFromPoint(x, y).style.backgroundColor;
+        }
+
+        document.addEventListener('mousemove', GetAndChangeColor);
+
+    </script>
+
+</body>
+</html>

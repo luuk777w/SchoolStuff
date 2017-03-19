@@ -1,0 +1,110 @@
+body{
+    background-image: url(site.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 1024px;
+    height: 768px;
+}
+#colofon{
+    position: fixed;
+    top: 140px;
+    left: 55px;
+}
+#linkjes{
+    position: fixed;
+    top: 213px;
+    left: 300px;
+}
+.link{
+    float: left;
+    font-family: Tahoma;
+}
+.link:hover{
+    cursor: pointer;
+}
+.LN{
+    position: relative;
+    bottom: 6px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+#content{
+    position: fixed;
+    left: 277px;
+    top: 270px;
+    width: 690px;
+    height: 455px;
+}
+
+
+#home{
+    position: fixed;
+    left: 268px;
+    top: 218px;
+    width: 92px;
+    height: 50px;
+    text-align: center;
+
+
+}
+#youtube{
+    position: fixed;
+    left: 368px;
+    top: 218px;
+    width: 92px;
+    height: 50px;
+    text-align: center;
+}
+.h{
+    font-family: Tahoma;
+    font-size: 50px;
+
+}
+#GIF{
+    position: fixed;
+    left: 469px;
+    top: 218px;
+    width: 92px;
+    height: 50px;
+    text-align: center;
+
+
+}
+
+#niks{
+    position: fixed;
+    left: 570px;
+    top: 218px;
+    width: 92px;
+    height: 50px;
+    text-align: center;
+}
+#tekst{
+    position: fixed;
+    left: 670px;
+    top: 218px;
+    width: 92px;
+    height: 50px;
+    text-align: center;
+
+
+}
+#foto{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    left: 70px;
+}
+#swag{
+    width: 600px;
+    height: 300px;
+}
+#border{
+    border: 1px dashed red;
+}

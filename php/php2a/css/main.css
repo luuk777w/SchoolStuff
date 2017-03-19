@@ -1,0 +1,128 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+h1{
+    font: bold 60px Tahoma;
+}
+
+header, section, footer, aside, nav, article, img{
+    display:block;
+}
+
+body{
+    width: 100%;
+    display:-webkit-box;
+    -webkit-box-pack: center;
+}
+
+#container{
+    max-width: 1000px;
+    margin: 20px 0px;
+    display:-webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-flex: 1;
+}
+
+#chatdiv{
+    height: 500px;
+    width: 605px;
+    overflow: scroll;
+}
+
+#div_2{
+
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+
+}
+
+header{
+    border: 1px solid black;
+    padding: 3px;
+}
+
+
+section{
+    border: 1px solid black;
+    width: 604px;
+    height: 560px;
+}
+img{
+    width: 150px;
+    height: 110px;
+    float: left;
+    margin: 3px;
+}
+
+iframe{
+    width: 604px;
+    height: 560px;
+    border: 0;
+}
+
+#side_news{
+    border: 1px solid black;
+    width: 170px;
+    height: 500px;
+    padding: 30px;
+}
+
+#menu{
+    border: 1px solid black;
+    width: 100px;
+    height: 500px;
+    padding: 30px;
+}
+
+#side_menu li {
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
+    font: bold 15px Tahoma;
+}
+
+.menu{
+    background-color: #7e8289;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+.menu:hover{
+    background-color: #236ce0;
+}
+
+.login{
+    width: 90px;
+    height: 17px;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Chrome/Safari/Opera */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+.pointer {
+
+    cursor: pointer;
+
+}
+
+footer{
+    text-align: center;
+    padding: 20px;
+    border: 1px solid black;
+}

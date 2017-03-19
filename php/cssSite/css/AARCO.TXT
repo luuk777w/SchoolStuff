@@ -1,0 +1,8 @@
+Aarcover is an all caps Type 1 PostScript font, plus numbers and punctuation, whose characters "look like" static electricity or limp lightning.  It was done at the request of a group called, oddly enough, AARCOVER.
+
+This font was made on a Mac and converted with Wrefont for use with ATM/PC.  No warranty is expressed or implied as to its working as expected.  No warranty is made as to its functionality when ported to any platform other than Apple Macintoshes.
+
+Aarcover is shareware, with the following terms: if you use or keep it you must do one of the following: send a check that will not bounce in the amount of $12,341,709.12 to Cynthia Lemiesz at the Columbia University Music Department, 703 Dodge Hall, Columbia University, New York, NY 10027; send a crisp one dollar bill to the same address, along with a blurred photograph; or bow on your knees every day for twelve days and face Spencer, Massachusetts, repeating the mantra, "I like jam! I don't understand!" for 18 minutes.
+
+Aarcover is © 1991 by David Rakowski, who holds onto Insect Bytes until they stop itching.
+
